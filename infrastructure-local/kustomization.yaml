@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - sources
   - flux-system
-  #- external-secrets/external-secrets.yaml
-  #- monitoring
-  #- minio
+  - external-secrets/external-secrets.yaml
+  - monitoring
+  - minio
 
