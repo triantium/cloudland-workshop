@@ -1,0 +1,257 @@
+grafana:
+  enabeld: false
+  #forceDeployDatasources: false
+  #forceDeployDashboards: true
+
+  image:
+    tag: 12.0.2
+  # for high availability
+  headlessService: true
+
+  admin:
+    ## Name of the secret. Can be templated.
+    existingSecret: grafana-credentials
+    userKey: admin-user
+    passwordKey: admin-password
+
+  grafana.ini:
+    server:
+      domain: "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
+      root_url: https://${grafanahost}
+      serve_from_sub_path: true
+    paths:
+      data: /var/lib/grafana/
+      logs: /var/log/grafana
+      plugins: /var/lib/grafana/plugins
+      provisioning: /etc/grafana/provisioning
+    analytics:
+      check_for_updates: false
+    log:
+      mode: console
+    grafana_net:
+      url: https://grafana.net
+    auth.generic_oauth:
+      auto_login: false
+      enabled: true
+      name: Keycloak-OAuth
+      allow_sign_up: true
+      client_id: grafana-oauth
+      scopes: openid email profile offline_access roles
+      email_attribute_path: email
+      login_attribute_path: username
+      name_attribute_path: full_name
+      auth_url: https://${keycloakhost}/realms/slix/protocol/openid-connect/auth
+      token_url: https://${keycloakhost}/realms/slix/protocol/openid-connect/token
+      api_url: https://${keycloakhost}/realms/slix/protocol/openid-connect/userinfo
+      role_attribute_path: contains(resource_access.roles[*], 'admin') && 'Admin' || contains(resource_access.roles[*],'editor') && 'Editor' || 'Viewer'
+  ingress:
+    enabled: false
+    # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
+    # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
+    ingressClassName: nginx
+    # Values can be templated
+    #annotations:
+    #  cert-manager.io/cluster-issuer: letsencrypt-prod
+    #  nginx.ingress.kubernetes.io/service-upstream: "true"
+    #  kubernetes.io/tls-acme: "true"
+    labels: {}
+    path: /
+
+    # pathType is only for k8s >= 1.1=
+    pathType: Prefix
+
+    hosts:
+      - ${grafanahost}
+    ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
+    extraPaths: []
+  #securityContext:
+  #  allowPrivilegeEscalation: true
+
+  #service:
+  #  enabled: true
+  #  type: LoadBalancer
+  persistence:
+    type: pvc
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 50Gi
+  sidecar:
+    alerts:
+      enabled: true
+      labelValue: "1"
+    datasources:
+      enabled: true
+      labelValue: "1"
+    dashboards:
+      enabled: true
+      labelValue: "1"
+  #extraVolumeMounts:
+  #- mountPath: /etc/grafana/provisioning/alerting
+  #  name: grafana-alerting
+  #  readOnly: false
+  #extraContainerVolumes:
+  #- name: grafana-alerting
+  #  configMap:
+  #    defaultMode: 420
+  #    name: grafana-alerting
+
+alertmanager:
+  enabled: false
+
+#Disbale rootFS in local System (only Docker)
+prometheus-node-exporter:
+  hostRootFsMount:
+    enabled: false
+
+prometheusOperator:
+  enabled: true
+
+  admissionWebhooks:
+    enabled: true
+    patch:
+      podAnnotations:
+        linkerd.io/inject: disabled
+
+prometheus:
+  enabled: true
+
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
+    scrapeInterval: 5s
+    additionalScrapeConfigs:
+    - job_name: 'appmesh-envoy'
+      metrics_path: /stats/prometheus
+      kubernetes_sd_configs:
+      - role: pod
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_pod_container_name]
+        action: keep
+        regex: '^envoy$'
+      - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+        action: replace
+        regex: ([^:]+)(?::\d+)?;(\d+)
+        replacement: ${1}:9901
+        target_label: __address__
+      - action: labelmap
+        regex: __meta_kubernetes_pod_label_(.+)
+      - source_labels: [__meta_kubernetes_namespace]
+        action: replace
+        target_label: kubernetes_namespace
+      - source_labels: [__meta_kubernetes_pod_name]
+        action: replace
+        target_label: kubernetes_pod_name
+      # exclude high cardinality metrics
+      metric_relabel_configs:
+      - source_labels: [ cluster_name ]
+        regex: '(outbound|inbound|prometheus_stats).*'
+        action: drop
+      - source_labels: [ tcp_prefix ]
+        regex: '(outbound|inbound|prometheus_stats).*'
+        action: drop
+      - source_labels: [ listener_address ]
+        regex: '(.+)'
+        action: drop
+      - source_labels: [ http_conn_manager_listener_prefix ]
+        regex: '(.+)'
+        action: drop
+      - source_labels: [ http_conn_manager_prefix ]
+        regex: '(.+)'
+        action: drop
+      - source_labels: [ __name__ ]
+        regex: 'envoy_tls.*'
+        action: drop
+      - source_labels: [ __name__ ]
+        regex: 'envoy_tcp_downstream.*'
+        action: drop
+      - source_labels: [ __name__ ]
+        regex: 'envoy_http_(stats|admin).*'
+        action: drop
+      - source_labels: [ __name__ ]
+        regex: 'envoy_cluster_(lb|retry|bind|internal|max|original).*'
+        action: drop
+
+    # scrape config for API servers
+    - job_name: 'kubernetes-apiservers'
+      kubernetes_sd_configs:
+      - role: endpoints
+        namespaces:
+          names:
+          - default
+      scheme: https
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecure_skip_verify: true
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+        action: keep
+        regex: kubernetes;https
+
+    # scrape config for cAdvisor
+    - job_name: 'kubernetes-cadvisor'
+      scheme: https
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        insecure_skip_verify: true
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      kubernetes_sd_configs:
+      - role: node
+      relabel_configs:
+      - action: labelmap
+        regex: __meta_kubernetes_node_label_(.+)
+      - target_label: __address__
+        replacement: kubernetes.default.svc:443
+      - source_labels: [__meta_kubernetes_node_name]
+        regex: (.+)
+        target_label: __metrics_path__
+        replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
+      # exclude high cardinality metrics
+      metric_relabel_configs:
+      - source_labels: [__name__]
+        regex: (container|machine)_(cpu|memory|network|fs)_(.+)
+        action: keep
+      - source_labels: [__name__]
+        regex: container_memory_failures_total
+        action: drop
+
+    # scrape config for pods
+    - job_name: kubernetes-pods
+      kubernetes_sd_configs:
+      - role: pod
+      relabel_configs:
+      - action: keep
+        regex: true
+        source_labels:
+        - __meta_kubernetes_pod_annotation_prometheus_io_scrape
+      - source_labels: [ __address__ ]
+        regex: '.*9901.*'
+        action: drop
+      - action: replace
+        regex: (.+)
+        source_labels:
+        - __meta_kubernetes_pod_annotation_prometheus_io_path
+        target_label: __metrics_path__
+      - action: replace
+        regex: ([^:]+)(?::\d+)?;(\d+)
+        replacement: $1:$2
+        source_labels:
+        - __address__
+        - __meta_kubernetes_pod_annotation_prometheus_io_port
+        target_label: __address__
+      - action: labelmap
+        regex: __meta_kubernetes_pod_label_(.+)
+      - action: replace
+        source_labels:
+        - __meta_kubernetes_namespace
+        target_label: kubernetes_namespace
+      - action: replace
+        source_labels:
+        - __meta_kubernetes_pod_name
+        target_label: kubernetes_pod_name  

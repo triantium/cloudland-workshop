@@ -1,0 +1,15 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flux-monitoring
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: monitoring-stack
+      namespace: flux-system
+  interval: 10m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: "../infrastructure/flux-system/monitoring"
+  prune: false

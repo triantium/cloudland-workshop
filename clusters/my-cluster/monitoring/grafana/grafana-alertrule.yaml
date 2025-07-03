@@ -1,0 +1,138 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-alerts
+  labels:
+    grafana_alert: "1"
+data:
+  alertrules.yaml: |-
+    apiVersion: 1
+    groups:
+    - orgId: 1
+      name: keycloak
+      folder: keycloak
+      interval: 1m
+      rules:
+        - uid: a04c608c-6429-4ad4-9f1f-327098a2f612
+          title: KeycloakJavaHeapThresholdExceeded
+          condition: B
+          data:
+            - refId: A
+              relativeTimeRange:
+                from: 600
+                to: 0
+              datasourceUid: prometheus
+              model:
+                editorMode: code
+                expr: 100 * jvm_memory_bytes_used{area="heap"} / jvm_memory_bytes_max{area="heap"} > 90
+                instant: true
+                intervalMs: 1000
+                legendFormat: __auto
+                maxDataPoints: 43200
+                range: false
+                refId: A
+            - refId: B
+              relativeTimeRange:
+                from: 600
+                to: 0
+              datasourceUid: __expr__
+              model:
+                conditions:
+                    - evaluator:
+                        params:
+                            - 0
+                        type: gt
+                      operator:
+                        type: and
+                      query:
+                        params:
+                            - B
+                      reducer:
+                        params: []
+                        type: last
+                      type: query
+                datasource:
+                    type: __expr__
+                    uid: __expr__
+                expression: A
+                intervalMs: 1000
+                maxDataPoints: 43200
+                refId: B
+                type: threshold
+          dashboardUid: keycloak-dashboard
+          panelId: 12
+          noDataState: NoData
+          execErrState: Error
+          for: 5m
+          annotations:
+            __dashboardUid__: keycloak-dashboard
+            __panelId__: "12"
+            summary: '{{ printf "%0.0f" $value }}% heap usage of {{ $labels.area }} in pod {{ $labels.pod }}, namespace {{ $labels.namespace }}.'
+          labels:
+            severity: warning
+            app: keycloak
+          isPaused: false
+    - orgId: 1
+      # <string, required> name of the rule group
+      name: javaland-group
+      # <string, required> name of the folder the rule group will be stored in
+      folder: javaland1
+      # <duration, required> interval that the rule group should evaluated at
+      interval: 60s
+      # <list, required> list of rules that are part of the rule group
+      rules:
+        # <string, required> unique identifier for the rule
+        - uid: javaland_rule_1
+          # <string, required> title of the rule that will be displayed in the UI
+          title: first-javaland-rule
+          # <string, required> which query should be used for the condition
+          condition: A
+          # <list, required> list of query objects that should be executed on each
+          #                  evaluation - should be obtained trough the API
+          data:
+            - refId: A
+              datasourceUid: '__expr__'
+              model:
+                conditions:
+                  - evaluator:
+                      params:
+                        - 3
+                      type: gt
+                    operator:
+                      type: and
+                    query:
+                      params:
+                        - A
+                    reducer:
+                      type: last
+                    type: query
+                datasource:
+                  type: __expr__
+                  uid: '__expr__'
+                expression: 1==1
+                intervalMs: 1000
+                maxDataPoints: 43200
+                refId: A
+                type: math
+          # <string> UID of a dashboard that the alert rule should be linked to
+          #dashboardUid: my_dashboard
+          # <int> ID of the panel that the alert rule should be linked to
+          #panelId: 123
+          # <string> the state the alert rule will have when no data is returned
+          #          possible values: "NoData", "Alerting", "OK", default = NoData
+          noDataState: Alerting
+          # <string> the state the alert rule will have when the query execution
+          #          failed - possible values: "Error", "Alerting", "OK"
+          #          default = Alerting
+          # <duration, required> for how long should the alert fire before alerting
+          for: 30s
+          # <map<string, string>> a map of strings to pass around any data
+          annotations:
+            event: javaland2023
+          # <map<string, string> a map of strings that can be used to filter and
+          #                      route alerts
+          labels:
+            team: "demo-javaland"
+            severity: "warning"
+  
+        

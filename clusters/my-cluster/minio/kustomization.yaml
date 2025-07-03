@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- helmrelease-minio.yaml
+- minio-s3-credentials.yaml
+
+namespace: monitoring
+
+configMapGenerator:
+- name: values-minio
+  files:
+  - values.yaml=minio-values.yaml
+  options:
+    disableNameSuffixHash: true

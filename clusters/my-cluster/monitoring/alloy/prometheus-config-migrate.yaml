@@ -1,0 +1,6164 @@
+global:
+  scrape_interval: 30s
+  scrape_timeout: 10s
+scrape_configs:
+- job_name: serviceMonitor/demo/keycloak-servicemonitor-demo/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /realms/master/metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (keycloak);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: http
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - prod
+- job_name: serviceMonitor/demo/keycloak-servicemonitor-demo/1
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (keycloak);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: http
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - prod
+- job_name: serviceMonitor/demo/slp-api-servicemonitor-demo/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-demo);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - demo
+- job_name: serviceMonitor/development/keycloak-servicemonitor/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /realms/master/metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (keycloak);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: http
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/keycloak-servicemonitor/1
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (keycloak);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: http
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-aktenzeichen/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-aktenzeichen);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-bypass-quota/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-bypass-quota);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-dashboard/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-dashboard);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-develop/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-develop);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-email-unique/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-email-unique);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-feat-authorization/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-feat-authorization);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-feat-invoice-asreport/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-feat-invoice-asreport);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-feat-mitarbeiter/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-feat-mitarbeiter);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-feat-report-parameters/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-feat-report-parameters);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-feat-swagger/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-feat-swagger);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-feat-use-givenid/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-feat-use-givenid);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-feat-validate-relations/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-feat-validate-relations);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-access/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-access);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-already-associated/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-already-associated);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-bucketname/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-bucketname);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-calculation/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-calculation);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-configmap/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-configmap);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-demo/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-demo);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-kontingente/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-kontingente);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-organisation/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-organisation);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-others/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-others);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-props/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-props);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-fix-therapeut-funktion/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-fix-therapeut-funktion);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-jsreport/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-jsreport);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-kontingente/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-kontingente);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-logo/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-logo);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/development/slp-api-servicemonitor-optimize-query/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /slp-api/actuator/prometheus
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (slp-api-optimize-query);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9090"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9090"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/linkerd-viz/linkerd-federate/0
+  honor_labels: true
+  honor_timestamps: true
+  params:
+    match[]:
+    - '{job="linkerd-proxy"}'
+    - '{job="linkerd-controller"}'
+  scrape_interval: 30s
+  scrape_timeout: 30s
+  metrics_path: /federate
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_component, __meta_kubernetes_service_labelpresent_component]
+    separator: ;
+    regex: (prometheus);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: admin-http
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: admin-http
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: ^prometheus$
+    replacement: $1
+    action: keep
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - linkerd-viz
+- job_name: serviceMonitor/monitoring/cert-manager/0
+  honor_timestamps: true
+  scrape_interval: 1m
+  scrape_timeout: 30s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_component, __meta_kubernetes_service_labelpresent_app_kubernetes_io_component]
+    separator: ;
+    regex: (controller);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (cert-manager);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (cert-manager);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_number]
+    separator: ;
+    regex: "9402"
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_cert_manager]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: "9402"
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - cert-manager
+- job_name: serviceMonitor/monitoring/ingress-nginx-controller/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_component, __meta_kubernetes_service_labelpresent_app_kubernetes_io_component]
+    separator: ;
+    regex: (controller);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (ingress-nginx);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (ingress-nginx);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: metrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+- job_name: serviceMonitor/monitoring/kong-demo-kong/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (kong-demo);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_managed_by,
+      __meta_kubernetes_service_labelpresent_app_kubernetes_io_managed_by]
+    separator: ;
+    regex: (Helm);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (kong);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_version, __meta_kubernetes_service_labelpresent_app_kubernetes_io_version]
+    separator: ;
+    regex: (3.2);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_enable_metrics, __meta_kubernetes_service_labelpresent_enable_metrics]
+    separator: ;
+    regex: (true);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_helm_sh_chart, __meta_kubernetes_service_labelpresent_helm_sh_chart]
+    separator: ;
+    regex: (kong-2.17.0);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: status
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_kong_demo]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: status
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - demo
+- job_name: serviceMonitor/monitoring/kong-demo-kong/1
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (kong-demo);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_managed_by,
+      __meta_kubernetes_service_labelpresent_app_kubernetes_io_managed_by]
+    separator: ;
+    regex: (Helm);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (kong);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_version, __meta_kubernetes_service_labelpresent_app_kubernetes_io_version]
+    separator: ;
+    regex: (3.2);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_enable_metrics, __meta_kubernetes_service_labelpresent_enable_metrics]
+    separator: ;
+    regex: (true);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_helm_sh_chart, __meta_kubernetes_service_labelpresent_helm_sh_chart]
+    separator: ;
+    regex: (kong-2.17.0);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: cmetrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_kong_demo]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: cmetrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - demo
+- job_name: serviceMonitor/monitoring/kong-kong/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (kong);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_managed_by,
+      __meta_kubernetes_service_labelpresent_app_kubernetes_io_managed_by]
+    separator: ;
+    regex: (Helm);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (kong);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_version, __meta_kubernetes_service_labelpresent_app_kubernetes_io_version]
+    separator: ;
+    regex: (3.3);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_enable_metrics, __meta_kubernetes_service_labelpresent_enable_metrics]
+    separator: ;
+    regex: (true);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_helm_sh_chart, __meta_kubernetes_service_labelpresent_helm_sh_chart]
+    separator: ;
+    regex: (kong-2.27.0);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: status
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_kong]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: status
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/monitoring/kong-kong/1
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (kong);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_managed_by,
+      __meta_kubernetes_service_labelpresent_app_kubernetes_io_managed_by]
+    separator: ;
+    regex: (Helm);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (kong);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_version, __meta_kubernetes_service_labelpresent_app_kubernetes_io_version]
+    separator: ;
+    regex: (3.3);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_enable_metrics, __meta_kubernetes_service_labelpresent_enable_metrics]
+    separator: ;
+    regex: (true);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_helm_sh_chart, __meta_kubernetes_service_labelpresent_helm_sh_chart]
+    separator: ;
+    regex: (kong-2.27.0);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: cmetrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_kong]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: cmetrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - development
+- job_name: serviceMonitor/monitoring/loki/0
+  honor_timestamps: true
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (loki);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (loki);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_prometheus_io_service_monitor,
+      __meta_kubernetes_service_labelpresent_prometheus_io_service_monitor]
+    separator: ;
+    regex: (false);true
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-metrics
+    action: replace
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: monitoring/$1
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: cluster
+    replacement: loki
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - monitoring
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-alertmanager/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-alertmanager);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_self_monitor, __meta_kubernetes_service_labelpresent_self_monitor]
+    separator: ;
+    regex: (true);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-web
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-web
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - monitoring
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-alertmanager/1
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-alertmanager);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_self_monitor, __meta_kubernetes_service_labelpresent_self_monitor]
+    separator: ;
+    regex: (true);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: reloader-web
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: reloader-web
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - monitoring
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-apiserver/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: https
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  tls_config:
+    ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    server_name: kubernetes
+    insecure_skip_verify: false
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_component, __meta_kubernetes_service_labelpresent_component]
+    separator: ;
+    regex: (apiserver);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_provider, __meta_kubernetes_service_labelpresent_provider]
+    separator: ;
+    regex: (kubernetes);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: https
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_component]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: https
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  metric_relabel_configs:
+  - source_labels: [__name__, le]
+    separator: ;
+    regex: apiserver_request_duration_seconds_bucket;(0.15|0.2|0.3|0.35|0.4|0.45|0.6|0.7|0.8|0.9|1.25|1.5|1.75|2|3|3.5|4|4.5|6|7|8|9|15|25|40|50)
+    replacement: $1
+    action: drop
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - default
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-coredns/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-coredns);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_jobLabel]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-metrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - kube-system
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-kube-controller-manager/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: https
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  tls_config:
+    ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    insecure_skip_verify: true
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-kube-controller-manager);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_jobLabel]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-metrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - kube-system
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-kube-etcd/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-kube-etcd);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_jobLabel]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-metrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - kube-system
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-kube-proxy/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-kube-proxy);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_jobLabel]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-metrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - kube-system
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-kube-scheduler/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: https
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  tls_config:
+    ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    insecure_skip_verify: true
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-kube-scheduler);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_jobLabel]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-metrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - kube-system
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-kubelet/0
+  honor_labels: true
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: https
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  tls_config:
+    ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    insecure_skip_verify: true
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (kubelet);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_k8s_app, __meta_kubernetes_service_labelpresent_k8s_app]
+    separator: ;
+    regex: (kubelet);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: https-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_k8s_app]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: https-metrics
+    action: replace
+  - source_labels: [__metrics_path__]
+    separator: ;
+    regex: (.*)
+    target_label: metrics_path
+    replacement: $1
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - kube-system
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-kubelet/1
+  honor_labels: true
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics/cadvisor
+  scheme: https
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  tls_config:
+    ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    insecure_skip_verify: true
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (kubelet);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_k8s_app, __meta_kubernetes_service_labelpresent_k8s_app]
+    separator: ;
+    regex: (kubelet);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: https-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_k8s_app]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: https-metrics
+    action: replace
+  - source_labels: [__metrics_path__]
+    separator: ;
+    regex: (.*)
+    target_label: metrics_path
+    replacement: $1
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  metric_relabel_configs:
+  - source_labels: [__name__]
+    separator: ;
+    regex: container_cpu_(cfs_throttled_seconds_total|load_average_10s|system_seconds_total|user_seconds_total)
+    replacement: $1
+    action: drop
+  - source_labels: [__name__]
+    separator: ;
+    regex: container_fs_(io_current|io_time_seconds_total|io_time_weighted_seconds_total|reads_merged_total|sector_reads_total|sector_writes_total|writes_merged_total)
+    replacement: $1
+    action: drop
+  - source_labels: [__name__]
+    separator: ;
+    regex: container_memory_(mapped_file|swap)
+    replacement: $1
+    action: drop
+  - source_labels: [__name__]
+    separator: ;
+    regex: container_(file_descriptors|tasks_state|threads_max)
+    replacement: $1
+    action: drop
+  - source_labels: [__name__]
+    separator: ;
+    regex: container_spec.*
+    replacement: $1
+    action: drop
+  - source_labels: [id, pod]
+    separator: ;
+    regex: .+;
+    replacement: $1
+    action: drop
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - kube-system
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-kubelet/2
+  honor_labels: true
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics/probes
+  scheme: https
+  authorization:
+    type: Bearer
+    credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+  tls_config:
+    ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    insecure_skip_verify: true
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (kubelet);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_k8s_app, __meta_kubernetes_service_labelpresent_k8s_app]
+    separator: ;
+    regex: (kubelet);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: https-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_k8s_app]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: https-metrics
+    action: replace
+  - source_labels: [__metrics_path__]
+    separator: ;
+    regex: (.*)
+    target_label: metrics_path
+    replacement: $1
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - kube-system
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-operator/0
+  honor_labels: true
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: https
+  tls_config:
+    ca_file: /etc/prometheus/certs/secret_monitoring_slixmonitoring-kube-promet-admission_ca
+    server_name: slixmonitoring-kube-promet-operator
+    insecure_skip_verify: false
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-operator);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: https
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: https
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - monitoring
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-prometheus/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-prometheus);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_self_monitor, __meta_kubernetes_service_labelpresent_self_monitor]
+    separator: ;
+    regex: (true);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-web
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-web
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - monitoring
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-promet-prometheus/1
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app, __meta_kubernetes_service_labelpresent_app]
+    separator: ;
+    regex: (kube-prometheus-stack-prometheus);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_release, __meta_kubernetes_service_labelpresent_release]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_self_monitor, __meta_kubernetes_service_labelpresent_self_monitor]
+    separator: ;
+    regex: (true);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: reloader-web
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: reloader-web
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - monitoring
+- job_name: serviceMonitor/monitoring/slixmonitoring-kube-state-metrics/0
+  honor_labels: true
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (kube-state-metrics);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - monitoring
+- job_name: serviceMonitor/monitoring/slixmonitoring-prometheus-node-exporter/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_instance, __meta_kubernetes_service_labelpresent_app_kubernetes_io_instance]
+    separator: ;
+    regex: (slixmonitoring);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_service_label_app_kubernetes_io_name, __meta_kubernetes_service_labelpresent_app_kubernetes_io_name]
+    separator: ;
+    regex: (prometheus-node-exporter);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_port_name]
+    separator: ;
+    regex: http-metrics
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Node;(.*)
+    target_label: node
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_endpoint_address_target_kind, __meta_kubernetes_endpoint_address_target_name]
+    separator: ;
+    regex: Pod;(.*)
+    target_label: pod
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: service
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_service_name]
+    separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - source_labels: [__meta_kubernetes_service_label_jobLabel]
+    separator: ;
+    regex: (.+)
+    target_label: job
+    replacement: ${1}
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-metrics
+    action: replace
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: endpoints
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - monitoring
+- job_name: podMonitor/flux-system/flux-system/0
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [job]
+    separator: ;
+    regex: (.*)
+    target_label: __tmp_prometheus_job_name
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: (Failed|Succeeded)
+    replacement: $1
+    action: drop
+  - source_labels: [__meta_kubernetes_pod_label_app, __meta_kubernetes_pod_labelpresent_app]
+    separator: ;
+    regex: (helm-controller|source-controller|kustomize-controller|notification-controller|image-automation-controller|image-reflector-controller);true
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: http-prom
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: container
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: job
+    replacement: flux-system/flux-system
+    action: replace
+  - separator: ;
+    regex: (.*)
+    target_label: endpoint
+    replacement: http-prom
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_phase]
+    separator: ;
+    regex: Running
+    replacement: $1
+    action: keep
+  - source_labels: [__address__]
+    separator: ;
+    regex: (.*)
+    modulus: 1
+    target_label: __tmp_hash
+    replacement: $1
+    action: hashmod
+  - source_labels: [__tmp_hash]
+    separator: ;
+    regex: "0"
+    replacement: $1
+    action: keep
+  kubernetes_sd_configs:
+  - role: pod
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - flux-system
+- job_name: linkerd-controller
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [__meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: admin-http
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: component
+    replacement: $1
+    action: replace
+  kubernetes_sd_configs:
+  - role: pod
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+    namespaces:
+      own_namespace: false
+      names:
+      - linkerd
+- job_name: linkerd-service-mirror
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [__meta_kubernetes_pod_label_component, __meta_kubernetes_pod_container_port_name]
+    separator: ;
+    regex: linkerd-service-mirror;admin-http$
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_pod_container_name]
+    separator: ;
+    regex: (.*)
+    target_label: component
+    replacement: $1
+    action: replace
+  kubernetes_sd_configs:
+  - role: pod
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true
+- job_name: linkerd-proxy
+  honor_timestamps: true
+  scrape_interval: 30s
+  scrape_timeout: 10s
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  relabel_configs:
+  - source_labels: [__meta_kubernetes_pod_container_name, __meta_kubernetes_pod_container_port_name,
+      __meta_kubernetes_pod_label_linkerd_io_control_plane_ns]
+    separator: ;
+    regex: ^linkerd-proxy;linkerd-admin;linkerd
+    replacement: $1
+    action: keep
+  - source_labels: [__meta_kubernetes_namespace]
+    separator: ;
+    regex: (.*)
+    target_label: namespace
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_name]
+    separator: ;
+    regex: (.*)
+    target_label: pod
+    replacement: $1
+    action: replace
+  - source_labels: [__meta_kubernetes_pod_label_linkerd_io_proxy_job]
+    separator: ;
+    regex: (.*)
+    target_label: k8s_job
+    replacement: $1
+    action: replace
+  - separator: ;
+    regex: __meta_kubernetes_pod_label_linkerd_io_proxy_job
+    replacement: $1
+    action: labeldrop
+  - separator: ;
+    regex: __meta_kubernetes_pod_label_linkerd_io_proxy_(.+)
+    replacement: $1
+    action: labelmap
+  - separator: ;
+    regex: __meta_kubernetes_pod_label_linkerd_io_proxy_(.+)
+    replacement: $1
+    action: labeldrop
+  - separator: ;
+    regex: __meta_kubernetes_pod_label_linkerd_io_(.+)
+    replacement: $1
+    action: labelmap
+  - separator: ;
+    regex: __meta_kubernetes_pod_label_(.+)
+    replacement: __tmp_pod_label_$1
+    action: labelmap
+  - separator: ;
+    regex: __tmp_pod_label_linkerd_io_(.+)
+    replacement: __tmp_pod_label_$1
+    action: labelmap
+  - separator: ;
+    regex: __tmp_pod_label_linkerd_io_(.+)
+    replacement: $1
+    action: labeldrop
+  - separator: ;
+    regex: __tmp_pod_label_(.+)
+    replacement: $1
+    action: labelmap
+  kubernetes_sd_configs:
+  - role: pod
+    kubeconfig_file: ""
+    follow_redirects: true
+    enable_http2: true

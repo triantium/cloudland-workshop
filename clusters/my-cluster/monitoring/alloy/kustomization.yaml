@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- helmrelease-grafana-alloy.yaml
+- alloy-config.yaml
+
+namespace: monitoring
+
+configMapGenerator:
+- name: values-alloy
+  files:
+  - values.yaml=alloy-values.yaml
+  options:
+    disableNameSuffixHash: true

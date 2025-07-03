@@ -1,0 +1,59 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: grafana
+  namespace: istio-system
+spec:
+  hosts:
+  - "grafana.cloudland.com"
+  gateways:
+  - istio-system/public-gateway
+  http:
+  - route:
+    - destination:
+        host: grafana.monitoring.svc.cluster.local
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: flux-ui
+  namespace: istio-system
+spec:
+  hosts:
+  - "flux.cloudland.com"
+  gateways:
+  - istio-system/public-gateway
+  http:
+  - route:
+    - destination:
+        host: capacitor.flux-system.svc.cluster.local
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: minio
+  namespace: istio-system
+spec:
+  hosts:
+  - "minio.cloudland.com"
+  gateways:
+  - istio-system/public-gateway
+  http:
+  - route:
+    - destination:
+        host: minio-console.monitoring.svc.cluster.local
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: headlamp
+  namespace: istio-system
+spec:
+  hosts:
+  - "headlamp.cloudland.com"
+  gateways:
+  - istio-system/public-gateway
+  http:
+  - route:
+    - destination:
+        host: my-headlamp.kube-system.svc.cluster.local
