@@ -1,0 +1,20 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: loki
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: alloy
+      namespace: flux-system
+  interval: 10m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  path: "./infrastructure-local/monitoring/loki"
+  prune: false
+  postBuild:
+    substituteFrom:
+    - kind: ConfigMap
+      name: cluster-config

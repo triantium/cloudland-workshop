@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: loki
+  namespace: monitoring
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: loki
+      sourceRef:
+        kind: HelmRepository
+        name: loki
+        namespace: flux-system
+      interval: 1m
+  valuesFrom:
+  - kind: ConfigMap
+    name: values-loki
+  dependsOn:
+  - name: minio
+    namespace: monitoring
+  - name: grafana-alloy
+    namespace: monitoring
+  

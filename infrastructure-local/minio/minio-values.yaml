@@ -1,0 +1,40 @@
+replicas: 1
+mode: standalone
+existingSecret: minio-s3-credentials
+buckets:
+  - name: mimir-blocks-bucket
+    policy: none
+    purge: false
+  - name: mimir-ruler-bucket
+    policy: none
+    purge: false
+  - name: lokilogs
+    policy: none
+    purge: false
+  - name: tempotraces
+    policy: none
+    purge: false
+
+environment:
+  MINIO_BROWSER_LOGIN_ANIMATION: "off"
+
+resources:
+  requests:
+    memory: 1Gi
+
+metrics:
+  serviceMonitor:
+    enabled: true
+
+persistence:
+  enabled: true
+  annotations: {}
+  
+  existingClaim: ""
+
+  storageClass: ""
+  volumeName: ""
+  accessMode: ReadWriteOnce
+  size: 50Gi
+
+  subPath: ""

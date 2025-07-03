@@ -1,0 +1,6422 @@
+discovery.kubernetes "serviceMonitor_demo_keycloak_servicemonitor_demo_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["prod"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_demo_keycloak_servicemonitor_demo_1" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["prod"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_demo_slp_api_servicemonitor_demo_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["demo"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_keycloak_servicemonitor_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_keycloak_servicemonitor_1" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_aktenzeichen_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_bypass_quota_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_dashboard_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_develop_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_email_unique_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_feat_authorization_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_feat_invoice_asreport_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_feat_mitarbeiter_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_feat_report_parameters_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_feat_swagger_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_feat_use_givenid_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_feat_validate_relations_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_access_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_already_associated_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_bucketname_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_calculation_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_configmap_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_demo_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_kontingente_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_organisation_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_others_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_props_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_fix_therapeut_funktion_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_jsreport_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_kontingente_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_logo_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_development_slp_api_servicemonitor_optimize_query_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_linkerd_viz_linkerd_federate_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["linkerd-viz"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_cert_manager_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["cert-manager"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_ingress_nginx_controller_0" {
+	role = "endpoints"
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_kong_demo_kong_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["demo"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_kong_demo_kong_1" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["demo"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_kong_kong_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_kong_kong_1" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["development"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_loki_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["monitoring"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["monitoring"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_1" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["monitoring"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_apiserver_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["default"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_coredns_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["kube-system"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_controller_manager_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["kube-system"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_etcd_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["kube-system"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_proxy_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["kube-system"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_scheduler_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["kube-system"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["kube-system"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_1" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["kube-system"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_2" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["kube-system"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_operator_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["monitoring"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["monitoring"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_1" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["monitoring"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_kube_state_metrics_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["monitoring"]
+	}
+}
+
+discovery.kubernetes "serviceMonitor_monitoring_slixmonitoring_prometheus_node_exporter_0" {
+	role = "endpoints"
+
+	namespaces {
+		names = ["monitoring"]
+	}
+}
+
+discovery.kubernetes "podMonitor_flux_system_flux_system_0" {
+	role = "pod"
+
+	namespaces {
+		names = ["flux-system"]
+	}
+}
+
+discovery.kubernetes "linkerd_controller" {
+	role = "pod"
+
+	namespaces {
+		names = ["linkerd"]
+	}
+}
+
+discovery.kubernetes "linkerd_service_mirror" {
+	role = "pod"
+}
+
+discovery.kubernetes "linkerd_proxy" {
+	role = "pod"
+}
+
+discovery.relabel "serviceMonitor_demo_keycloak_servicemonitor_demo_0" {
+	targets = discovery.kubernetes.serviceMonitor_demo_keycloak_servicemonitor_demo_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(keycloak);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "http"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_demo_keycloak_servicemonitor_demo_1" {
+	targets = discovery.kubernetes.serviceMonitor_demo_keycloak_servicemonitor_demo_1.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(keycloak);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "http"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_demo_slp_api_servicemonitor_demo_0" {
+	targets = discovery.kubernetes.serviceMonitor_demo_slp_api_servicemonitor_demo_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-demo);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_keycloak_servicemonitor_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_keycloak_servicemonitor_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(keycloak);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "http"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_keycloak_servicemonitor_1" {
+	targets = discovery.kubernetes.serviceMonitor_development_keycloak_servicemonitor_1.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(keycloak);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "http"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_aktenzeichen_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_aktenzeichen_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-aktenzeichen);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_bypass_quota_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_bypass_quota_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-bypass-quota);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_dashboard_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_dashboard_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-dashboard);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_develop_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_develop_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-develop);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_email_unique_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_email_unique_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-email-unique);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_feat_authorization_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_feat_authorization_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-feat-authorization);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_feat_invoice_asreport_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_feat_invoice_asreport_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-feat-invoice-asreport);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_feat_mitarbeiter_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_feat_mitarbeiter_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-feat-mitarbeiter);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_feat_report_parameters_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_feat_report_parameters_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-feat-report-parameters);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_feat_swagger_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_feat_swagger_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-feat-swagger);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_feat_use_givenid_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_feat_use_givenid_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-feat-use-givenid);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_feat_validate_relations_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_feat_validate_relations_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-feat-validate-relations);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_access_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_access_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-access);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_already_associated_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_already_associated_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-already-associated);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_bucketname_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_bucketname_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-bucketname);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_calculation_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_calculation_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-calculation);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_configmap_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_configmap_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-configmap);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_demo_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_demo_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-demo);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_kontingente_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_kontingente_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-kontingente);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_organisation_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_organisation_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-organisation);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_others_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_others_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-others);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_props_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_props_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-props);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_fix_therapeut_funktion_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_fix_therapeut_funktion_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-fix-therapeut-funktion);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_jsreport_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_jsreport_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-jsreport);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_kontingente_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_kontingente_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-kontingente);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_logo_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_logo_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-logo);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_development_slp_api_servicemonitor_optimize_query_0" {
+	targets = discovery.kubernetes.serviceMonitor_development_slp_api_servicemonitor_optimize_query_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(slp-api-optimize-query);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9090"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9090"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_linkerd_viz_linkerd_federate_0" {
+	targets = discovery.kubernetes.serviceMonitor_linkerd_viz_linkerd_federate_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_component", "__meta_kubernetes_service_labelpresent_component"]
+		regex         = "(prometheus);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "admin-http"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "admin-http"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		regex         = "^prometheus$"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_cert_manager_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_cert_manager_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_component", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_component"]
+		regex         = "(controller);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(cert-manager);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(cert-manager);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_number"]
+		regex         = "9402"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_cert_manager"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "9402"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_ingress_nginx_controller_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_ingress_nginx_controller_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_component", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_component"]
+		regex         = "(controller);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(ingress-nginx);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(ingress-nginx);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "metrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_kong_demo_kong_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_kong_demo_kong_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(kong-demo);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_managed_by", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_managed_by"]
+		regex         = "(Helm);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(kong);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_version", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_version"]
+		regex         = "(3.2);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_enable_metrics", "__meta_kubernetes_service_labelpresent_enable_metrics"]
+		regex         = "(true);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_helm_sh_chart", "__meta_kubernetes_service_labelpresent_helm_sh_chart"]
+		regex         = "(kong-2.17.0);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "status"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_kong_demo"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "status"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_kong_demo_kong_1" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_kong_demo_kong_1.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(kong-demo);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_managed_by", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_managed_by"]
+		regex         = "(Helm);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(kong);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_version", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_version"]
+		regex         = "(3.2);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_enable_metrics", "__meta_kubernetes_service_labelpresent_enable_metrics"]
+		regex         = "(true);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_helm_sh_chart", "__meta_kubernetes_service_labelpresent_helm_sh_chart"]
+		regex         = "(kong-2.17.0);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "cmetrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_kong_demo"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "cmetrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_kong_kong_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_kong_kong_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(kong);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_managed_by", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_managed_by"]
+		regex         = "(Helm);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(kong);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_version", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_version"]
+		regex         = "(3.3);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_enable_metrics", "__meta_kubernetes_service_labelpresent_enable_metrics"]
+		regex         = "(true);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_helm_sh_chart", "__meta_kubernetes_service_labelpresent_helm_sh_chart"]
+		regex         = "(kong-2.27.0);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "status"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_kong"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "status"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_kong_kong_1" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_kong_kong_1.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(kong);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_managed_by", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_managed_by"]
+		regex         = "(Helm);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(kong);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_version", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_version"]
+		regex         = "(3.3);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_enable_metrics", "__meta_kubernetes_service_labelpresent_enable_metrics"]
+		regex         = "(true);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_helm_sh_chart", "__meta_kubernetes_service_labelpresent_helm_sh_chart"]
+		regex         = "(kong-2.27.0);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "cmetrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_kong"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "cmetrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_loki_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_loki_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(loki);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(loki);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_prometheus_io_service_monitor", "__meta_kubernetes_service_labelpresent_prometheus_io_service_monitor"]
+		regex         = "(false);true"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-metrics"
+	}
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "job"
+		replacement   = "monitoring/$1"
+	}
+
+	rule {
+		target_label = "cluster"
+		replacement  = "loki"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-alertmanager);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_self_monitor", "__meta_kubernetes_service_labelpresent_self_monitor"]
+		regex         = "(true);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-web"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-web"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_1" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_1.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-alertmanager);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_self_monitor", "__meta_kubernetes_service_labelpresent_self_monitor"]
+		regex         = "(true);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "reloader-web"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "reloader-web"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_apiserver_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_apiserver_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_component", "__meta_kubernetes_service_labelpresent_component"]
+		regex         = "(apiserver);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_provider", "__meta_kubernetes_service_labelpresent_provider"]
+		regex         = "(kubernetes);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "https"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_component"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "https"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_coredns_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_coredns_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-coredns);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_jobLabel"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-metrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_controller_manager_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_controller_manager_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-kube-controller-manager);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_jobLabel"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-metrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_etcd_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_etcd_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-kube-etcd);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_jobLabel"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-metrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_proxy_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_proxy_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-kube-proxy);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_jobLabel"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-metrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_scheduler_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_scheduler_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-kube-scheduler);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_jobLabel"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-metrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(kubelet);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_k8s_app", "__meta_kubernetes_service_labelpresent_k8s_app"]
+		regex         = "(kubelet);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "https-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_k8s_app"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "https-metrics"
+	}
+
+	rule {
+		source_labels = ["__metrics_path__"]
+		target_label  = "metrics_path"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_1" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_1.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(kubelet);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_k8s_app", "__meta_kubernetes_service_labelpresent_k8s_app"]
+		regex         = "(kubelet);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "https-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_k8s_app"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "https-metrics"
+	}
+
+	rule {
+		source_labels = ["__metrics_path__"]
+		target_label  = "metrics_path"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_2" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_2.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(kubelet);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_k8s_app", "__meta_kubernetes_service_labelpresent_k8s_app"]
+		regex         = "(kubelet);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "https-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_k8s_app"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "https-metrics"
+	}
+
+	rule {
+		source_labels = ["__metrics_path__"]
+		target_label  = "metrics_path"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_operator_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_operator_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-operator);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "https"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "https"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-prometheus);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_self_monitor", "__meta_kubernetes_service_labelpresent_self_monitor"]
+		regex         = "(true);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-web"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-web"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_1" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_1.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app", "__meta_kubernetes_service_labelpresent_app"]
+		regex         = "(kube-prometheus-stack-prometheus);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_release", "__meta_kubernetes_service_labelpresent_release"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_self_monitor", "__meta_kubernetes_service_labelpresent_self_monitor"]
+		regex         = "(true);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "reloader-web"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "reloader-web"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_kube_state_metrics_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_kube_state_metrics_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(kube-state-metrics);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "serviceMonitor_monitoring_slixmonitoring_prometheus_node_exporter_0" {
+	targets = discovery.kubernetes.serviceMonitor_monitoring_slixmonitoring_prometheus_node_exporter_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_instance", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_instance"]
+		regex         = "(slixmonitoring);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_app_kubernetes_io_name", "__meta_kubernetes_service_labelpresent_app_kubernetes_io_name"]
+		regex         = "(prometheus-node-exporter);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_port_name"]
+		regex         = "http-metrics"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Node;(.*)"
+		target_label  = "node"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_endpoint_address_target_kind", "__meta_kubernetes_endpoint_address_target_name"]
+		regex         = "Pod;(.*)"
+		target_label  = "pod"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "service"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_name"]
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_service_label_jobLabel"]
+		regex         = "(.+)"
+		target_label  = "job"
+		replacement   = "${1}"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-metrics"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "podMonitor_flux_system_flux_system_0" {
+	targets = discovery.kubernetes.podMonitor_flux_system_flux_system_0.targets
+
+	rule {
+		source_labels = ["job"]
+		target_label  = "__tmp_prometheus_job_name"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "(Failed|Succeeded)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_label_app", "__meta_kubernetes_pod_labelpresent_app"]
+		regex         = "(helm-controller|source-controller|kustomize-controller|notification-controller|image-automation-controller|image-reflector-controller);true"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "http-prom"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "container"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		target_label = "job"
+		replacement  = "flux-system/flux-system"
+	}
+
+	rule {
+		target_label = "endpoint"
+		replacement  = "http-prom"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_phase"]
+		regex         = "Running"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__address__"]
+		modulus       = 1
+		target_label  = "__tmp_hash"
+		action        = "hashmod"
+	}
+
+	rule {
+		source_labels = ["__tmp_hash"]
+		regex         = "0"
+		action        = "keep"
+	}
+}
+
+discovery.relabel "linkerd_controller" {
+	targets = discovery.kubernetes.linkerd_controller.targets
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_port_name"]
+		regex         = "admin-http"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "component"
+	}
+}
+
+discovery.relabel "linkerd_service_mirror" {
+	targets = discovery.kubernetes.linkerd_service_mirror.targets
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_label_component", "__meta_kubernetes_pod_container_port_name"]
+		regex         = "linkerd-service-mirror;admin-http$"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name"]
+		target_label  = "component"
+	}
+}
+
+discovery.relabel "linkerd_proxy" {
+	targets = discovery.kubernetes.linkerd_proxy.targets
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_container_name", "__meta_kubernetes_pod_container_port_name", "__meta_kubernetes_pod_label_linkerd_io_control_plane_ns"]
+		regex         = "^linkerd-proxy;linkerd-admin;linkerd"
+		action        = "keep"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_namespace"]
+		target_label  = "namespace"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_name"]
+		target_label  = "pod"
+	}
+
+	rule {
+		source_labels = ["__meta_kubernetes_pod_label_linkerd_io_proxy_job"]
+		target_label  = "k8s_job"
+	}
+
+	rule {
+		regex  = "__meta_kubernetes_pod_label_linkerd_io_proxy_job"
+		action = "labeldrop"
+	}
+
+	rule {
+		regex  = "__meta_kubernetes_pod_label_linkerd_io_proxy_(.+)"
+		action = "labelmap"
+	}
+
+	rule {
+		regex  = "__meta_kubernetes_pod_label_linkerd_io_proxy_(.+)"
+		action = "labeldrop"
+	}
+
+	rule {
+		regex  = "__meta_kubernetes_pod_label_linkerd_io_(.+)"
+		action = "labelmap"
+	}
+
+	rule {
+		regex       = "__meta_kubernetes_pod_label_(.+)"
+		replacement = "__tmp_pod_label_$1"
+		action      = "labelmap"
+	}
+
+	rule {
+		regex       = "__tmp_pod_label_linkerd_io_(.+)"
+		replacement = "__tmp_pod_label_$1"
+		action      = "labelmap"
+	}
+
+	rule {
+		regex  = "__tmp_pod_label_linkerd_io_(.+)"
+		action = "labeldrop"
+	}
+
+	rule {
+		regex  = "__tmp_pod_label_(.+)"
+		action = "labelmap"
+	}
+}
+
+prometheus.scrape "serviceMonitor_demo_keycloak_servicemonitor_demo_0" {
+	targets         = discovery.relabel.serviceMonitor_demo_keycloak_servicemonitor_demo_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/demo/keycloak-servicemonitor-demo/0"
+	scrape_interval = "30s"
+	metrics_path    = "/realms/master/metrics"
+}
+
+prometheus.scrape "serviceMonitor_demo_keycloak_servicemonitor_demo_1" {
+	targets         = discovery.relabel.serviceMonitor_demo_keycloak_servicemonitor_demo_1.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/demo/keycloak-servicemonitor-demo/1"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_demo_slp_api_servicemonitor_demo_0" {
+	targets         = discovery.relabel.serviceMonitor_demo_slp_api_servicemonitor_demo_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/demo/slp-api-servicemonitor-demo/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_keycloak_servicemonitor_0" {
+	targets         = discovery.relabel.serviceMonitor_development_keycloak_servicemonitor_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/keycloak-servicemonitor/0"
+	scrape_interval = "30s"
+	metrics_path    = "/realms/master/metrics"
+}
+
+prometheus.scrape "serviceMonitor_development_keycloak_servicemonitor_1" {
+	targets         = discovery.relabel.serviceMonitor_development_keycloak_servicemonitor_1.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/keycloak-servicemonitor/1"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_aktenzeichen_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_aktenzeichen_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-aktenzeichen/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_bypass_quota_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_bypass_quota_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-bypass-quota/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_dashboard_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_dashboard_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-dashboard/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_develop_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_develop_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-develop/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_email_unique_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_email_unique_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-email-unique/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_feat_authorization_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_feat_authorization_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-feat-authorization/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_feat_invoice_asreport_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_feat_invoice_asreport_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-feat-invoice-asreport/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_feat_mitarbeiter_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_feat_mitarbeiter_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-feat-mitarbeiter/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_feat_report_parameters_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_feat_report_parameters_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-feat-report-parameters/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_feat_swagger_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_feat_swagger_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-feat-swagger/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_feat_use_givenid_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_feat_use_givenid_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-feat-use-givenid/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_feat_validate_relations_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_feat_validate_relations_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-feat-validate-relations/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_access_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_access_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-access/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_already_associated_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_already_associated_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-already-associated/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_bucketname_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_bucketname_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-bucketname/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_calculation_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_calculation_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-calculation/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_configmap_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_configmap_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-configmap/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_demo_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_demo_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-demo/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_kontingente_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_kontingente_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-kontingente/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_organisation_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_organisation_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-organisation/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_others_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_others_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-others/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_props_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_props_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-props/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_fix_therapeut_funktion_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_fix_therapeut_funktion_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-fix-therapeut-funktion/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_jsreport_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_jsreport_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-jsreport/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_kontingente_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_kontingente_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-kontingente/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_logo_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_logo_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-logo/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_development_slp_api_servicemonitor_optimize_query_0" {
+	targets         = discovery.relabel.serviceMonitor_development_slp_api_servicemonitor_optimize_query_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/development/slp-api-servicemonitor-optimize-query/0"
+	scrape_interval = "15s"
+	metrics_path    = "/slp-api/actuator/prometheus"
+}
+
+prometheus.scrape "serviceMonitor_linkerd_viz_linkerd_federate_0" {
+	targets      = discovery.relabel.serviceMonitor_linkerd_viz_linkerd_federate_0.output
+	forward_to   = [prometheus.remote_write.default.receiver]
+	job_name     = "serviceMonitor/linkerd-viz/linkerd-federate/0"
+	honor_labels = true
+	params       = {
+		"match[]" = ["{job=\"linkerd-proxy\"}", "{job=\"linkerd-controller\"}"],
+	}
+	scrape_interval = "30s"
+	scrape_timeout  = "30s"
+	metrics_path    = "/federate"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_cert_manager_0" {
+	targets        = discovery.relabel.serviceMonitor_monitoring_cert_manager_0.output
+	forward_to     = [prometheus.remote_write.default.receiver]
+	job_name       = "serviceMonitor/monitoring/cert-manager/0"
+	scrape_timeout = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_ingress_nginx_controller_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_ingress_nginx_controller_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/ingress-nginx-controller/0"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_kong_demo_kong_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_kong_demo_kong_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/kong-demo-kong/0"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_kong_demo_kong_1" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_kong_demo_kong_1.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/kong-demo-kong/1"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_kong_kong_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_kong_kong_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/kong-kong/0"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_kong_kong_1" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_kong_kong_1.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/kong-kong/1"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_loki_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_loki_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/loki/0"
+	scrape_interval = "15s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-alertmanager/0"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_1" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_alertmanager_1.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-alertmanager/1"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_apiserver_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_apiserver_0.output
+	forward_to      = [prometheus.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_apiserver_0.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-apiserver/0"
+	scrape_interval = "30s"
+	scheme          = "https"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+
+	tls_config {
+		ca_file     = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+		server_name = "kubernetes"
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_coredns_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_coredns_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-coredns/0"
+	scrape_interval = "30s"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_controller_manager_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_controller_manager_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-kube-controller-manager/0"
+	scrape_interval = "30s"
+	scheme          = "https"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+
+	tls_config {
+		ca_file              = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+		insecure_skip_verify = true
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_etcd_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_etcd_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-kube-etcd/0"
+	scrape_interval = "30s"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_proxy_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_proxy_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-kube-proxy/0"
+	scrape_interval = "30s"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_scheduler_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_kube_scheduler_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-kube-scheduler/0"
+	scrape_interval = "30s"
+	scheme          = "https"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+
+	tls_config {
+		ca_file              = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+		insecure_skip_verify = true
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-kubelet/0"
+	honor_labels    = true
+	scrape_interval = "30s"
+	scheme          = "https"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+
+	tls_config {
+		ca_file              = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+		insecure_skip_verify = true
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_1" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_1.output
+	forward_to      = [prometheus.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_1.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-kubelet/1"
+	honor_labels    = true
+	scrape_interval = "30s"
+	metrics_path    = "/metrics/cadvisor"
+	scheme          = "https"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+
+	tls_config {
+		ca_file              = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+		insecure_skip_verify = true
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_2" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_2.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-kubelet/2"
+	honor_labels    = true
+	scrape_interval = "30s"
+	metrics_path    = "/metrics/probes"
+	scheme          = "https"
+
+	authorization {
+		type             = "Bearer"
+		credentials_file = "/var/run/secrets/kubernetes.io/serviceaccount/token"
+	}
+
+	tls_config {
+		ca_file              = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+		insecure_skip_verify = true
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_operator_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_operator_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-operator/0"
+	honor_labels    = true
+	scrape_interval = "30s"
+	scheme          = "https"
+
+	tls_config {
+		ca_file     = "/etc/prometheus/certs/secret_monitoring_slixmonitoring-kube-promet-admission_ca"
+		server_name = "slixmonitoring-kube-promet-operator"
+	}
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-prometheus/0"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_1" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_promet_prometheus_1.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-promet-prometheus/1"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_kube_state_metrics_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_kube_state_metrics_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-kube-state-metrics/0"
+	honor_labels    = true
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "serviceMonitor_monitoring_slixmonitoring_prometheus_node_exporter_0" {
+	targets         = discovery.relabel.serviceMonitor_monitoring_slixmonitoring_prometheus_node_exporter_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "serviceMonitor/monitoring/slixmonitoring-prometheus-node-exporter/0"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "podMonitor_flux_system_flux_system_0" {
+	targets         = discovery.relabel.podMonitor_flux_system_flux_system_0.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "podMonitor/flux-system/flux-system/0"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "linkerd_controller" {
+	targets         = discovery.relabel.linkerd_controller.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "linkerd-controller"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "linkerd_service_mirror" {
+	targets         = discovery.relabel.linkerd_service_mirror.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "linkerd-service-mirror"
+	scrape_interval = "30s"
+}
+
+prometheus.scrape "linkerd_proxy" {
+	targets         = discovery.relabel.linkerd_proxy.output
+	forward_to      = [prometheus.remote_write.default.receiver]
+	job_name        = "linkerd-proxy"
+	scrape_interval = "30s"
+}
+
+prometheus.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_apiserver_0" {
+	forward_to = [prometheus.remote_write.default.receiver]
+
+	rule {
+		source_labels = ["__name__", "le"]
+		regex         = "apiserver_request_duration_seconds_bucket;(0.15|0.2|0.3|0.35|0.4|0.45|0.6|0.7|0.8|0.9|1.25|1.5|1.75|2|3|3.5|4|4.5|6|7|8|9|15|25|40|50)"
+		action        = "drop"
+	}
+}
+
+prometheus.relabel "serviceMonitor_monitoring_slixmonitoring_kube_promet_kubelet_1" {
+	forward_to = [prometheus.remote_write.default.receiver]
+
+	rule {
+		source_labels = ["__name__"]
+		regex         = "container_cpu_(cfs_throttled_seconds_total|load_average_10s|system_seconds_total|user_seconds_total)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__name__"]
+		regex         = "container_fs_(io_current|io_time_seconds_total|io_time_weighted_seconds_total|reads_merged_total|sector_reads_total|sector_writes_total|writes_merged_total)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__name__"]
+		regex         = "container_memory_(mapped_file|swap)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__name__"]
+		regex         = "container_(file_descriptors|tasks_state|threads_max)"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["__name__"]
+		regex         = "container_spec.*"
+		action        = "drop"
+	}
+
+	rule {
+		source_labels = ["id", "pod"]
+		regex         = ".+;"
+		action        = "drop"
+	}
+}

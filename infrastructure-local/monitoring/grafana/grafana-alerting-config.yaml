@@ -1,0 +1,105 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-alerting
+  labels:
+    grafana_alert: "1"
+data:
+  contactpoints.yaml: |-
+    apiVersion: 1
+    contactPoints:
+    #- orgId: 1
+    #  name: Slack_channel
+    #  receivers:
+    #    - uid: default-receiver
+    #      type: slack
+    #      settings:
+    #        # Webhook URL to be filled in
+    #        url: "https://hooks.slack.com/services/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"
+    #        # We need to escape double curly braces for the tpl function.
+    #        text: '{{ template "slack.message" . }}'
+    #        title: '{{ template "slack.title" . }}'
+    - orgId: 1
+      name: SlixTeams
+      receivers:
+        - uid: d6d1776e-ea8f-4ec4-8d72-eb3125c26b1f
+          type: teams
+          settings:
+            url: https://slix.webhook.office.com/webhookb2/df8bfd3a-d0f4-4760-abb8-c04a90a889b8@a9f859e7-df9a-41f1-b16f-7d0ac75ae571/IncomingWebhook/9edcb2b61a5a4578a6269cd4505bd870/9e8376bc-833a-4edb-be1d-1dedc587bbb1
+          disableResolveMessage: false
+          text: '{{ template "slack.message" . }}'
+          title: '{{ template "slack.title" . }}'
+  notificationpolicy.yaml: |-
+    apiVersion: 1
+    policies:
+    - orgId: 1
+      receiver: grafana-default-email
+      group_by:
+        - grafana_folder
+        - alertname
+      routes:
+        - receiver: SlixTeams
+          object_matchers:
+            - - app
+              - =
+              - keycloak
+            - - severity
+              - =~
+              - warning|critical
+          continue: true
+        - receiver: grafana-default-email
+          object_matchers:
+            - - app
+              - =
+              - keycloak
+            - - severity
+              - =~
+              - warning|critical
+  template.yaml: |-
+    apiVersion: 1
+    templates:
+    - orgID: 1
+      name: slack.title
+      template: "{{ len .Alerts.Firing }} firing alert(s), {{ len .Alerts.Resolved }} resolved alert(s)"
+  template2.yaml: |-
+    apiVersion: 1
+    templates:
+    - orgID: 1
+      name: slack.print_alert
+      template: |-
+        [{{.Status}}] {{ .Labels.alertname }}
+        Labels: 
+        {{ range .Labels.SortedPairs -}}
+        - {{ .Name }}: {{ .Value }}
+        {{ end -}}
+        {{ if .Annotations -}}
+        Annotations:
+        {{ range .Annotations.SortedPairs -}}
+        - {{ .Name }}: {{ .Value }}
+        {{ end -}}
+        {{ end -}}
+        {{ if .SilenceURL -}}
+          Silence: {{ .SilenceURL }}
+        {{ end -}}
+        {{ if .DashboardURL -}}
+          Go to dashboard: {{ .DashboardURL }}
+        {{- end }}
+  template3.yaml: |-
+    apiVersion: 1
+    templates:
+    - orgID: 1
+      name: slack.message
+      template: |-
+        {{ if .Alerts.Firing -}}
+        {{ len .Alerts.Firing }} firing alert(s):
+        {{ range .Alerts.Firing }}
+        {{ template "slack.print_alert" . }}
+        {{ end -}}
+        {{ end }}
+        {{ if .Alerts.Resolved -}}
+        {{ len .Alerts.Resolved }} resolved alert(s):
+        {{ range .Alerts.Resolved }}
+        {{ template "slack.print_alert" .}}
+        {{ end -}}
+        {{ end }}
+        

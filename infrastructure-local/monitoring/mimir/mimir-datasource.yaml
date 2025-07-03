@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: loki-stack
+    app.kubernetes.io/component: loki
+    grafana_datasource: "1"
+  name: loki-datasource
+  namespace: monitoring
+data:
+  mimir-datasource.yaml: |-
+    apiVersion: 1
+    datasources:
+    - name: Mimir
+      type: prometheus
+      uid: prometheus
+      url: http://mimir-gateway.monitoring.svc.cluster.local/prometheus
+      access: proxy
+      isDefault: true
+      jsonData:
+        httpMethod: POST
+        timeInterval: 30s
+    - name: Alertmanager
+      type: alertmanager
+      uid: alertmanager
+      url: http://mimir-alertmanager.monitoring.svc.cluster.local:9095
+      access: proxy
+      jsonData:
+        handleGrafanaManagedAlerts: false
+        implementation: mimir

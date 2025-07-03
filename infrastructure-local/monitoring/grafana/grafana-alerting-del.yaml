@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-alerting
+  labels:
+    grafana_alert: "1"
+data:
+  templatesdel.yaml: |-
+    apiVersion: 1
+    deleteTemplates:
+    - orgID: 1
+      name: slack.message
+    - orgID: 1
+      name: slack.title
+    - orgID: 1
+      name: slack.print_alert
+    deleteContactPoints:
+    - orgId: 1
+      uid: default-receiver
+    - orgId: 1
+      uid: d6d1776e-ea8f-4ec4-8d72-eb3125c26b1f
+    deleteRules:
+    - orgId: 1
+      uid: javaland_rule_1
+    - orgId: 1
+      uid: a04c608c-6429-4ad4-9f1f-327098a2f612
+    resetPolicies:
+    - 1
+  #contactpointdel.yaml: |-
+  #  apiVersion: 1
+  #  deleteContactPoints:
+  #  - orgId: 1
+  #    uid: default-receiver
+  #deleterule.yaml: |-
+  #  apiVersion: 1
+  #  deleteRules:
+  #  - orgId: 1
+  #    uid: my_id_1      
+  #resetpolicy.yaml: |-
+  #  apiVersion: 1
+  #  resetPolicies:
+  #  - 1

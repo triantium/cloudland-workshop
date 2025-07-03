@@ -1,0 +1,11 @@
+apiVersion: flagger.app/v1beta1
+kind: AlertProvider
+metadata:
+  name: slack
+  namespace: prod
+spec:
+  type: slack
+  channel: cloudland
+  username: flagger
+  address: https://hooks.slack.com/services/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
+  
