@@ -1,0 +1,8 @@
+resources:
+- backend
+- frontend
+- loadtest
+- sidecar.yaml
+- namespace.yaml
+
+namespace: prod

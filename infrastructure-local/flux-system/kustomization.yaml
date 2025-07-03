@@ -1,4 +1,0 @@
-resources:
-- flux-app.yaml
-- flux-ui.yaml
-#- flux-monitoring.yaml
